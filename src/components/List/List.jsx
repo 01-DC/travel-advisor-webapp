@@ -21,6 +21,12 @@ const List = () => {
 		{ name: "Cool Place" },
 		{ name: "Best Beer" },
 		{ name: "Best Steak" },
+		{ name: "Cool Place" },
+		{ name: "Best Beer" },
+		{ name: "Best Steak" },
+		{ name: "Cool Place" },
+		{ name: "Best Beer" },
+		{ name: "Best Steak" },
 	]
 
 	return (
@@ -50,7 +56,7 @@ const List = () => {
 			<Grid container spacing={3} className={classes.list}>
 				{places?.map((place, i) => (
 					<Grid item key={i} xs={12}>
-						<Card />
+						<PlaceDetails place={place} />
 					</Grid>
 				))}
 			</Grid>
