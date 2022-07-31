@@ -1,7 +1,12 @@
 import axios from "axios"
 
-const getPlacesData = async () => {
+export const getPlacesData = async () => {
 	try {
-		const response = await axios.get()
-	} catch (error) {}
+		const {
+			data: { data },
+		} = await axios.get(URL, options)
+		return data
+	} catch (error) {
+		console.log(error)
+	}
 }
