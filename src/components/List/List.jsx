@@ -12,13 +12,19 @@ import {
 import useStyles from "./styles"
 import PlaceDetails from "../PlaceDetails/PlaceDetails"
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({
+	places,
+	childClicked,
+	isLoading,
+	type,
+	setType,
+	rating,
+	setRating,
+}) => {
 	const classes = useStyles()
-	const [type, setType] = useState("restaurants")
-	const [rating, setRating] = useState("")
-
 	const [elRefs, setElRefs] = useState([])
 
+	// console.log({ childClicked })
 	useEffect(() => {
 		const refs = Array(places?.length)
 			.fill()
@@ -60,7 +66,7 @@ const List = ({ places, childClicked, isLoading }) => {
 					</FormControl>
 					<Grid container spacing={3} className={classes.list}>
 						{places?.map((place, i) => (
-							<Grid item key={i} xs={12}>
+							<Grid item ref={elRefs[i]} key={i} xs={12}>
 								<PlaceDetails
 									place={place}
 									selected={Number(childClicked) === i}

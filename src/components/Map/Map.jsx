@@ -23,7 +23,7 @@ const Map = ({
 				bootstrapURLKeys={{
 					key: "AIzaSyAXS2qZkSm9xwvQ_0WWzbtqPW-rNxL7bdA",
 				}}
-				defaultCenter={coordinates}
+				defaultCenter={{ lat: 0, lng: 0 }}
 				center={coordinates}
 				defaultZoom={14}
 				margin={[50, 50, 50, 50]}
@@ -33,10 +33,7 @@ const Map = ({
 					setCoordinates({ lat: e.center.lat, lng: e.center.lng })
 					setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw })
 				}}
-				onChildClick={(child) => {
-					console.log(child)
-					setChildClicked(child)
-				}}>
+				onChildClick={(child) => setChildClicked(child)}>
 				{places?.map((place, i) => (
 					<div
 						className={classes.markerContainer}
