@@ -31,14 +31,18 @@ const App = () => {
 	}, [rating])
 
 	useEffect(() => {
-		setIsLoading(true)
+		if (bounds.sw && bounds.ne) {
+			setIsLoading(true)
 
-		getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
-			setPlaces(data)
-			setFilteredPlaces([])
-			setIsLoading(false)
-		})
-	}, [coordinates, bounds, type])
+			getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
+				setPlaces(
+					data.filter((place) => place.name && place.num_reviews > 0)
+				)
+				setFilteredPlaces([])
+				setIsLoading(false)
+			})
+		}
+	}, [bounds, type])
 
 	return (
 		<>
