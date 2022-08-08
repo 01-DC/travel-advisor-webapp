@@ -27,3 +27,15 @@ export const getPlacesData = async (type, sw, ne) => {
 		console.log(error)
 	}
 }
+
+export const getWeatherData = async (lat, lng) => {
+	try {
+		const { data } = await axios.get(
+			`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5329066f06a37e1e0a3689a5688c5098`
+		)
+
+		return data
+	} catch (error) {
+		console.log(error)
+	}
+}
