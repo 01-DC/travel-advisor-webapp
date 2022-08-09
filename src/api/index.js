@@ -16,8 +16,7 @@ export const getPlacesData = async (type, sw, ne) => {
 					tr_longitude: ne.lng,
 				},
 				headers: {
-					"X-RapidAPI-Key":
-						"81961389e8msh8d2a3310e269264p18ad4ajsnf0a8f683beec",
+					"X-RapidAPI-Key": process.env.REACT_APP_RAPIDAPI_KEY,
 					"X-RapidAPI-Host": "travel-advisor.p.rapidapi.com",
 				},
 			}
@@ -31,7 +30,7 @@ export const getPlacesData = async (type, sw, ne) => {
 export const getWeatherData = async (lat, lng) => {
 	try {
 		const { data } = await axios.get(
-			`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5329066f06a37e1e0a3689a5688c5098`
+			`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
 		)
 
 		return data

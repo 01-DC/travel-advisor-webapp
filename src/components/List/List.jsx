@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createRef, useRef } from "react"
+import React, { useState, useEffect, createRef } from "react"
 import {
 	CircularProgress,
 	Grid,
